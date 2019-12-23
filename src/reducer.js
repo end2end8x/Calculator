@@ -30,9 +30,6 @@ const rootReducer = (state = initialState, action) => {
     }
     case SAVE_EXPRESSION:
       const operator = ["+", "-", "*", "/"];
-      console.log(
-        `SAVE_EXPRESSION ${JSON.stringify(state)} ${JSON.stringify(action)}`
-      );
       const indexPayload = operator.indexOf(action.payload);
       const indexOperator = operator.indexOf(
         state.expression[state.expression.length - 1]
@@ -48,7 +45,6 @@ const rootReducer = (state = initialState, action) => {
               action.payload
             : state.expression + action.payload
       };
-      console.log(`SAVE_EXPRESSION newState ${JSON.stringify(newState)}`);
       return newState;
     default:
       return state;
