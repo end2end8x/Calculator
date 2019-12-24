@@ -1,8 +1,9 @@
 import React from "react";
 import { TouchableOpacity, Text, Dimensions } from "react-native";
 import { styles } from "./styles";
+import PropTypes from "prop-types";
 
-export default Button = React.memo(props => {
+export const Button = React.memo(props => {
   const { onPress, text, size } = props;
   const buttonWidth = Dimensions.get("window").width / 4;
   const height =
@@ -19,3 +20,9 @@ export default Button = React.memo(props => {
     </React.Fragment>
   );
 });
+
+Button.propTypes = {
+  onPress: PropTypes.function,
+  text: PropTypes.string,
+  size: PropTypes.string
+};

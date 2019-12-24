@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
-import Button from "./Button";
+import { Button } from "./Button";
 import { styles } from "./styles";
 import { useDispatch, useSelector } from "react-redux";
 import { save, equalResult, clearResult } from "./actions";
