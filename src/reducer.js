@@ -46,14 +46,9 @@ const rootReducer = (state = initialState, action) => {
       const newExpression = expression + payload;
       if (payload === ".") {
         if (lastOp == ".") return state;
-        if (newExpression.match(regex)) {
-          console.log(`MATCH ${newExpression}`);
-        } else {
-          console.log(`NOT Match ${newExpression}`);
-        }
+        if (!`${newExpression}0`.match(regex)) return state;
       }
       if (expression === "0" && indexPayload != -1) return state;
-      // console.log(`${JSON.stringify(state)} ${JSON.stringify(action)}`);
       const newState = {
         ...state,
         expression:
