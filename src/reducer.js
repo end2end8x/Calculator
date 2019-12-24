@@ -5,7 +5,7 @@ import {
   CLEAR_RESULT
 } from "./constants";
 
-const rootReducer = (state = initialState, action) => {
+export const rootReducer = (state = initialState, action) => {
   const operator = ["+", "-", "*", "/"];
   const regex = /^\d+(\.\d+)?([+\-*]\d+(\.\d+)?)*$/gm;
   let { payload } = action;
@@ -17,11 +17,9 @@ const rootReducer = (state = initialState, action) => {
     payload === "." &&
     lastOp !== "." &&
     (indexlastOp != -1 || expression === "0")
-  ) {
+  )
     payload = `0${payload}`;
-  }
   const newExpression = expression + payload;
-
   switch (action.type) {
     case CLEAR_RESULT:
       return initialState;
@@ -30,9 +28,7 @@ const rootReducer = (state = initialState, action) => {
       try {
         const temp = eval(expression);
         result =
-          temp === parseInt(temp)
-            ? temp
-            : Math.round(temp * 100000000) / 100000000;
+          temp === parseInt(temp) ? temp : Math.round(temp * 1000000) / 1000000;
       } catch (e) {
         console.log(`CALCULATE_RESULT Exception ${e}`);
       }
@@ -62,5 +58,3 @@ const rootReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default rootReducer;
