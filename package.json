@@ -8,9 +8,6 @@
     "eject": "expo eject",
     "test": "jest"
   },
-  "jest": {
-    "preset": "jest-expo"
-  },
   "dependencies": {
     "expo": "~36.0.0",
     "react": "~16.9.0",
@@ -24,7 +21,22 @@
     "@babel/core": "^7.0.0",
     "babel-preset-expo": "~8.0.0",
     "jest": "^24.9.0",
+    "jest-expo": "^36.0.1",
     "react-test-renderer": "^16.12.0"
   },
-  "private": true
+  "private": true,
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base)"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/jest.setup.js"
+    ]
+  }
 }
