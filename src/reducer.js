@@ -7,7 +7,7 @@ import {
 
 const rootReducer = (state = initialState, action) => {
   const operator = ["+", "-", "*", "/"];
-  const regex = /^\d+(\.\d+)?([+\-*\/]\d+(\.\d+)?)*$/gm;
+  const regex = /^\d+(\.\d+)?([+\-*]\d+(\.\d+)?)*$/gm;
   let { payload } = action;
   const { expression } = state;
   const indexPayload = operator.indexOf(payload);
