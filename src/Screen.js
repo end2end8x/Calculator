@@ -53,7 +53,11 @@ export default function Screen() {
             <Button text="-" size="op" onPress={() => dispatch(save("-"))} />
           </View>
           <View style={styles.row}>
-            <Button text="=" size="op" onPress={() => dispatch(equalResult())} />
+            <Button
+              text="="
+              size="op"
+              onPress={() => dispatch(equalResult())}
+            />
           </View>
         </View>
       </View>

@@ -1,7 +1,7 @@
 import {
   initialState,
   SAVE_EXPRESSION,
-  CALCULATE_RESULT,
+  EQUAL_RESULT,
   CLEAR_RESULT
 } from "./constants";
 
@@ -23,14 +23,14 @@ export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case CLEAR_RESULT:
       return initialState;
-    case CALCULATE_RESULT: {
+    case EQUAL_RESULT: {
       let result;
       try {
         const temp = eval(expression);
         result =
           temp === parseInt(temp) ? temp : Math.round(temp * 1000000) / 1000000;
       } catch (e) {
-        console.log(`CALCULATE_RESULT Exception ${e}`);
+        console.log(`EQUAL_RESULT Exception ${e}`);
       }
       if (!result || typeof +result !== "number") result = 0;
       return {
