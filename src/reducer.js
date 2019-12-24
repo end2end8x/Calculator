@@ -38,13 +38,13 @@ const rootReducer = (state = initialState, action) => {
       if (
         payload === "." &&
         lastOp !== "." &&
-        (indexlastOp != -1 || expression == 0)
+        (indexlastOp != -1 || expression === "0")
       ) {
         payload = `0${payload}`;
       }
       const newExpression = expression + payload;
       if (payload === ".") {
-        if (lastOp == ".") return state;
+        if (lastOp === ".") return state;
         if (!`${newExpression}0`.match(regex)) return state;
       }
       if (expression === "0" && indexPayload != -1) return state;
