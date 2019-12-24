@@ -22,7 +22,7 @@ export const Button = React.memo(props => {
 });
 
 Button.propTypes = {
-  onPress: PropTypes.function,
+  onPress: PropTypes.func.isRequired,
   text: PropTypes.string,
   size: PropTypes.string
 };
