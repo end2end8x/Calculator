@@ -2,11 +2,9 @@ import React from "react";
 import { TouchableOpacity, Text, Dimensions } from "react-native";
 import { styles } from "./styles";
 
-const screen = Dimensions.get("window");
-const buttonWidth = screen.width / 4;
-
 export default Button = React.memo(props => {
   const { onPress, text, size } = props;
+  const buttonWidth = Dimensions.get("window").width / 4;
   const height =
     size === "op"
       ? Math.floor(buttonWidth - 20) * 0.75

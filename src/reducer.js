@@ -20,12 +20,11 @@ const rootReducer = (state = initialState, action) => {
       } catch (e) {
       } finally {
         if (!result || typeof +result !== "number") result = 0;
-        const newState = {
+        return {
           ...state,
           expression: "0",
           result
         };
-        return newState;
       }
     }
     case SAVE_EXPRESSION:
@@ -49,7 +48,7 @@ const rootReducer = (state = initialState, action) => {
         if (!`${newExpression}0`.match(regex)) return state;
       }
       if (expression === "0" && indexPayload != -1) return state;
-      const newState = {
+      return {
         ...state,
         expression:
           expression === "0"
@@ -58,7 +57,6 @@ const rootReducer = (state = initialState, action) => {
             ? expression.substr(0, expression.length - 1) + payload
             : newExpression
       };
-      return newState;
     default:
       return state;
   }
